@@ -1,0 +1,42 @@
+{
+  "chainId": 4663,
+  "entrypoint": "0x920a504831e1a4017cF7B0F57dD876b341286fCc",
+  "entrypointImplementation": "0x5a1C8Ed1151eE8B140792F026951e418A92a8190",
+  "implementationCodehash": "0xa596b615b5bcc388280a56d5d3d8fab683ff23d92debf2ad5fa6b48b62cc534a",
+  "adapter": "0x1A184f25cc0C032fD6f6701eE4F1DCE359705715",
+  "router": "0x8876789976decbfcbbbe364623c63652db8c0904",
+  "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "withdrawalVerifier": "0x787ae4EeF7F1527F64c45098AD586dEA5cA08337",
+  "commitmentVerifier": "0xd70e56F7BCD893405d098F845FDe0e0C570A5C4a",
+  "codehashes": {
+    "entrypoint": "0xd98976d163466faffc324db9afad1bfe20cd5a3b66ae4eab033facc63d579d6c",
+    "adapter": "0x7b9e0d2043edc4b103ec8fc5f9708b44248242963271c620ac5c71e086a8673c",
+    "router": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+    "permit2": "0x5208783f52488f7d3493e5e38311ab707c1d75457fe472a19b0b4d57d66a7fca",
+    "withdrawalVerifier": "0xe22b993a320abb80568b9abca382508c0595490556c2872683ec17ca78923eb6",
+    "commitmentVerifier": "0x75d863db2b7c295a0e52333aa899619ae6b64ac264635d8a0c9a13e0a0ba282d"
+  },
+  "confirmations": 12,
+  "pools": [
+    {
+      "address": "0x7cC560575D8954565360976f9F06f370b65e8aE2",
+      "asset": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "symbol": "ETH",
+      "decimals": 18,
+      "scope": "15012763722716355204004755601731952366704676063809921887324979159252133889029",
+      "deploymentBlock": 99145950,
+      "codehash": "0xb9a2a0cd8d9629c2aae05060d4e6e9523d728b4f66d1cb89067588668ce08461",
+      "feeRaw": "9900000000000"
+    },
+    {
+      "address": "0xDea0119a222CF576562316B4f77C378d5723e97C",
+      "asset": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+      "symbol": "USDG",
+      "decimals": 6,
+      "scope": "6828139205268951831817442690453609102330733196295146450918464451450761380221",
+      "deploymentBlock": 99145950,
+      "codehash": "0xb3704ac7d17261d0c3294ce12cad79d7cc60b6f7a16c7b1a831d37e0b195dba0",
+      "feeRaw": "10000"
+    }
+  ]
+}
