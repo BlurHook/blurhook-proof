@@ -1,0 +1,51 @@
+{
+  "name": "@blurhook/proof",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BlurHook receipt verification and preceding-block route comparison on Robinhood Chain.",
+  "license": "MIT",
+  "author": "BlurHook",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlurHook/blurhook-proof.git"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "deployments"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "viem": "2.57.11",
+    "@blurhook/sdk": "https://github.com/BlurHook/blurhook-sdk/releases/download/v0.1.0/blurhook-sdk-0.1.0.tgz"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  },
+  "bin": {
+    "blurhook-proof": "dist/cli.js"
+  }
+}
