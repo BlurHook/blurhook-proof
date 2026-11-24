@@ -1,10 +1,10 @@
 {
   "name": "@blurhook/proof",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
-  "description": "BlurHook receipt verification and preceding-block route comparison on Robinhood Chain.",
+  "description": "OpalHook receipt verification and preceding-block route comparison on Robinhood Chain.",
   "license": "MIT",
-  "author": "BlurHook",
+  "author": "OpalHook",
   "type": "module",
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
     "README.md",
     "LICENSE",
     "NOTICE",
-    "deployments"
+    "deployments",
+    "CHANGELOG.md",
+    "METHOD.md"
   ],
   "sideEffects": false,
   "engines": {
@@ -46,6 +48,7 @@
     "vitest": "4.1.10"
   },
   "bin": {
-    "blurhook-proof": "dist/cli.js"
+    "blurhook-proof": "dist/cli.js",
+    "opalhook-proof": "dist/cli.js"
   }
 }
