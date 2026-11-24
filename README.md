@@ -4,13 +4,13 @@ Read-only execution evidence for Robinhood Chain. This package extracts the rece
 
 ## Install and run
 
-Install [v0.1.1](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.1) from GitHub in your project. Use Node 22.13 or newer.
+Install [v0.1.2](https://github.com/opalhook/opalhook-proof/releases/tag/v0.1.2) from GitHub in your project. Use Node 22.13 or newer.
 
 ```sh
-npm install https://github.com/BlurHook/blurhook-proof/releases/download/v0.1.1/blurhook-proof-0.1.1.tgz
+npm install https://github.com/opalhook/opalhook-proof/releases/download/v0.1.2/opalhook-proof-0.1.2.tgz
 ```
 
-The package name is `@blurhook/proof`. The package is unpublished on the npm registry.
+The package name is `@opalhook/proof`. The package is unpublished on the npm registry.
 
 Replace `0xYOUR_TRANSACTION_HASH` with a Robinhood Chain transaction hash.
 
@@ -23,7 +23,7 @@ Replace `0xYOUR_TRANSACTION_HASH` with a Robinhood Chain transaction hash.
 Node 22.13 or newer. The SDK is pinned to its built GitHub release asset; no sibling checkout or npm-registry publication is required.
 
 ```sh
-git clone https://github.com/BlurHook/blurhook-proof.git opalhook-proof
+git clone https://github.com/opalhook/opalhook-proof.git opalhook-proof
 cd opalhook-proof
 npm ci --ignore-scripts
 npm run typecheck
@@ -35,7 +35,7 @@ node dist/cli.js 0xYOUR_TRANSACTION_HASH
 `OPALHOOK_RPC_URLS` optionally supplies comma-separated read RPC endpoints with historical-state access. The CLI prints JSON; exit 0 means amounts could be established, 1 means an ungraded receipt, 2 means invalid input or a failed request. It does not sign or submit transactions.
 
 ```ts
-import {createExecutionVerifier} from '@blurhook/proof';
+import {createExecutionVerifier} from '@opalhook/proof';
 const verifier=createExecutionVerifier();
 const result=await verifier.verify(transactionHash);
 ```
@@ -46,10 +46,10 @@ A reverted receipt is never graded. For public swaps, a single input/output must
 
 The reference is a supported hook-free Uniswap route quoted at the preceding block. Missing archive state yields `receipt-only`. Comparison excludes network gas and relayer fees. Same-block ordering, available indexed pools, current code pins and numerical precision can affect the comparison. `competitive` means at least 99.9% of that reference, not globally optimal execution. Tests use synthetic receipts and do not claim a live private swap.
 
-See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [OpalHook SDK](https://github.com/BlurHook/blurhook-sdk) and the deployment manifest in this repository. The custom trading adapter has not had an independent audit.
+See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [OpalHook SDK](https://github.com/opalhook/opalhook-sdk) and the deployment manifest in this repository. The custom trading adapter has not had an independent audit.
 
 ## Compatibility
 
-The first public release shipped on **28 October 2026** as `v0.1.0` under the BlurHook name. The OpalHook rebrand followed on **24 November 2026**. The [original v0.1.0 release](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.0) remains available for existing integrations. The repository URL and `@blurhook/*` package identifiers still work.
+The first public release shipped on **28 October 2026** as `v0.1.0` under the BlurHook name. The OpalHook rebrand followed on **24 November 2026**. The [original v0.1.0 release](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.0) remains available for existing integrations. The [v0.1.1 release](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.1) also retains the `@blurhook/proof` package name. The new tarball installs as `@opalhook/proof`.
 
 `opalhook-proof` and `blurhook-proof` start the same read-only verifier. `OPALHOOK_RPC_URLS` takes precedence over the legacy `BLURHOOK_RPC_URLS`. Deployed contract addresses and proof semantics are unchanged.

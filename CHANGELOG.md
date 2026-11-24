@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- Distribute the execution verifier as `@opalhook/proof` and pin the OpalHook SDK GitHub tarball.
+- Retain the legacy command and environment aliases.
+
 ## 0.1.1 — 24 November 2026
 
 - Adopt OpalHook branding while retaining existing repository and package locations.

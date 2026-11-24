@@ -1,6 +1,6 @@
 import {describe,expect,it,vi} from 'vitest';
 import {encodeAbiParameters,encodeEventTopics,encodeFunctionData,parseAbi,toEventSelector,type Hex} from 'viem';
-import {RHC,NATIVE,universalRouterAbi} from '@blurhook/sdk';
+import {RHC,NATIVE,universalRouterAbi} from '@opalhook/sdk';
 import {allocatedNativeInput,executionProof,adapterAbi,encodeRequest} from '../src/index.js';
 const OWNER='0x1111111111111111111111111111111111111111' as const;
 const HASH=('0x'+'ab'.repeat(32)) as Hex;
