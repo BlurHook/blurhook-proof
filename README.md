@@ -4,6 +4,22 @@ Read-only execution evidence for Robinhood Chain. This package extracts the rece
 
 ## Install and run
 
+Install [v0.1.1](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.1) from GitHub in your project. Use Node 22.13 or newer.
+
+```sh
+npm install https://github.com/BlurHook/blurhook-proof/releases/download/v0.1.1/blurhook-proof-0.1.1.tgz
+```
+
+The package name is `@blurhook/proof`. The package is unpublished on the npm registry.
+
+Replace `0xYOUR_TRANSACTION_HASH` with a Robinhood Chain transaction hash.
+
+```sh
+./node_modules/.bin/opalhook-proof 0xYOUR_TRANSACTION_HASH
+```
+
+### Build from source
+
 Node 22.13 or newer. The SDK is pinned to its built GitHub release asset; no sibling checkout or npm-registry publication is required.
 
 ```sh
@@ -13,7 +29,7 @@ npm ci --ignore-scripts
 npm run typecheck
 npm run build
 npm test
-node dist/cli.js <transaction-hash>
+node dist/cli.js 0xYOUR_TRANSACTION_HASH
 ```
 
 `OPALHOOK_RPC_URLS` optionally supplies comma-separated read RPC endpoints with historical-state access. The CLI prints JSON; exit 0 means amounts could be established, 1 means an ungraded receipt, 2 means invalid input or a failed request. It does not sign or submit transactions.
@@ -23,8 +39,6 @@ import {createExecutionVerifier} from '@blurhook/proof';
 const verifier=createExecutionVerifier();
 const result=await verifier.verify(transactionHash);
 ```
-
-Build from current source and run `npm install /path/to/opalhook-proof` from your project to use the OpalHook CLI name.
 
 ## What is checked
 
@@ -36,6 +50,6 @@ See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [OpalHook SDK](https://github.com/
 
 ## Compatibility
 
-The first public release shipped on **28 October 2026** as `v0.1.0` under the BlurHook name. The OpalHook rebrand followed on **24 November 2026**. The original GitHub release is available for integrations that use it. Build from current source to use the OpalHook names in this README. The current source version is `v0.1.1` and is not published as a GitHub release or npm registry package. The repository URL and `@blurhook/*` package identifiers still work.
+The first public release shipped on **28 October 2026** as `v0.1.0` under the BlurHook name. The OpalHook rebrand followed on **24 November 2026**. The [original v0.1.0 release](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.0) remains available for existing integrations. The repository URL and `@blurhook/*` package identifiers still work.
 
 `opalhook-proof` and `blurhook-proof` start the same read-only verifier. `OPALHOOK_RPC_URLS` takes precedence over the legacy `BLURHOOK_RPC_URLS`. Deployed contract addresses and proof semantics are unchanged.
