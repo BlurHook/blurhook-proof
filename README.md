@@ -1,12 +1,5 @@
 # OpalHook execution proof
 
-> Formerly BlurHook. First public release: **28 October 2026** (`v0.1.0`).
-> The OpalHook rebrand is dated **24 November 2026**. Existing repository URLs and
-> `@blurhook/*` package identifiers remain in use for compatibility. Original
-> commits, release tags and release assets are retained. The new API names below
-> require v0.1.1 or a build from this source; the v0.1.0 tarballs stay unchanged.
-
-
 Read-only execution evidence for Robinhood Chain. This package extracts the receipt and preceding-block comparison used by OpalHook's app. It supports the deployed OpalHook trading adapter and supported public token-flow swaps.
 
 ## Install and run
@@ -14,8 +7,8 @@ Read-only execution evidence for Robinhood Chain. This package extracts the rece
 Node 22.13 or newer. The SDK is pinned to its built GitHub release asset; no sibling checkout or npm-registry publication is required.
 
 ```sh
-git clone https://github.com/BlurHook/blurhook-proof.git
-cd blurhook-proof
+git clone https://github.com/BlurHook/blurhook-proof.git opalhook-proof
+cd opalhook-proof
 npm ci --ignore-scripts
 npm run typecheck
 npm run build
@@ -31,7 +24,7 @@ const verifier=createExecutionVerifier();
 const result=await verifier.verify(transactionHash);
 ```
 
-Build from source and use `npm install /path/to/blurhook-proof`, or install the built GitHub release tarball when one is attached. No npm-registry package is claimed.
+Build from current source and run `npm install /path/to/opalhook-proof` from your project to use the OpalHook CLI name.
 
 ## What is checked
 
@@ -42,5 +35,7 @@ The reference is a supported hook-free Uniswap route quoted at the preceding blo
 See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [OpalHook SDK](https://github.com/BlurHook/blurhook-sdk) and the deployment manifest in this repository. The custom trading adapter has not had an independent audit.
 
 ## Compatibility
+
+The first public release shipped on **28 October 2026** as `v0.1.0` under the BlurHook name. The OpalHook rebrand followed on **24 November 2026**. The original GitHub release is available for integrations that use it. Build from current source to use the OpalHook names in this README. The current source version is `v0.1.1` and is not published as a GitHub release or npm registry package. The repository URL and `@blurhook/*` package identifiers still work.
 
 `opalhook-proof` and `blurhook-proof` start the same read-only verifier. `OPALHOOK_RPC_URLS` takes precedence over the legacy `BLURHOOK_RPC_URLS`. Deployed contract addresses and proof semantics are unchanged.
