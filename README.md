@@ -50,6 +50,4 @@ See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [OpalHook SDK](https://github.com/
 
 ## Compatibility
 
-The first public release shipped on **28 October 2026** as `v0.1.0` under the BlurHook name. The OpalHook rebrand followed on **24 November 2026**. The [original v0.1.0 release](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.0) remains available for existing integrations. The [v0.1.1 release](https://github.com/BlurHook/blurhook-proof/releases/tag/v0.1.1) also retains the `@blurhook/proof` package name. The new tarball installs as `@opalhook/proof`.
-
-`opalhook-proof` and `blurhook-proof` start the same read-only verifier. `OPALHOOK_RPC_URLS` takes precedence over the legacy `BLURHOOK_RPC_URLS`. Deployed contract addresses and proof semantics are unchanged.
+See the [migration guide](https://github.com/opalhook/opalhook-proof/blob/main/MIGRATION.md) for earlier releases and supported aliases.
