@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-import {createBlurHook,RHC,NATIVE,universalRouterAbi,type Address,type BlurHookOptions} from "@blurhook/sdk";
+import {createOpalHook,RHC,NATIVE,universalRouterAbi,type Address,type OpalHookOptions} from "@opalhook/sdk";
 import {decodeEventLog,decodeFunctionData,decodeAbiParameters,formatUnits,parseAbi,toEventSelector,type Hex} from "viem";
 import manifest from "../deployments/robinhood-4663.json";
 import {adapterAbi,decodeRequest} from "./protocol.js";
-type Engine=ReturnType<typeof createBlurHook>;
+type Engine=ReturnType<typeof createOpalHook>;
 const transferAbi = parseAbi([
   "event Transfer(address indexed from,address indexed to,uint256 value)",
 ]);
@@ -246,4 +246,4 @@ export async function executionProof(sdk: Engine, hash: Hex) {
 }
 
 export {adapterAbi,encodeRequest} from "./protocol.js";
-export function createExecutionVerifier(options:BlurHookOptions={}){const sdk=createBlurHook(options);return{verify:(hash:Hex)=>{if(!/^0x[0-9a-fA-F]{64}$/.test(hash))throw new Error("Invalid transaction hash");return executionProof(sdk,hash);}};}
+export function createExecutionVerifier(options:OpalHookOptions={}){const sdk=createOpalHook(options);return{verify:(hash:Hex)=>{if(!/^0x[0-9a-fA-F]{64}$/.test(hash))throw new Error("Invalid transaction hash");return executionProof(sdk,hash);}};}
