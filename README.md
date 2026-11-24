@@ -1,6 +1,13 @@
-# BlurHook execution proof
+# OpalHook execution proof
 
-Read-only execution evidence for Robinhood Chain. This package extracts the receipt and preceding-block comparison used by BlurHook's app. It supports the deployed BlurHook trading adapter and supported public token-flow swaps.
+> Formerly BlurHook. First public release: **28 October 2026** (`v0.1.0`).
+> The OpalHook rebrand is dated **24 November 2026**. Existing repository URLs and
+> `@blurhook/*` package identifiers remain in use for compatibility. Original
+> commits, release tags and release assets are retained. The new API names below
+> require v0.1.1 or a build from this source; the v0.1.0 tarballs stay unchanged.
+
+
+Read-only execution evidence for Robinhood Chain. This package extracts the receipt and preceding-block comparison used by OpalHook's app. It supports the deployed OpalHook trading adapter and supported public token-flow swaps.
 
 ## Install and run
 
@@ -16,7 +23,7 @@ npm test
 node dist/cli.js <transaction-hash>
 ```
 
-`BLURHOOK_RPC_URLS` optionally supplies comma-separated read RPC endpoints with historical-state access. The CLI prints JSON; exit 0 means amounts could be established, 1 means an ungraded receipt, 2 means invalid input or a failed request. It does not sign or submit transactions.
+`OPALHOOK_RPC_URLS` optionally supplies comma-separated read RPC endpoints with historical-state access. The CLI prints JSON; exit 0 means amounts could be established, 1 means an ungraded receipt, 2 means invalid input or a failed request. It does not sign or submit transactions.
 
 ```ts
 import {createExecutionVerifier} from '@blurhook/proof';
@@ -28,8 +35,12 @@ Build from source and use `npm install /path/to/blurhook-proof`, or install the 
 
 ## What is checked
 
-A reverted receipt is never graded. For public swaps, a single input/output must be established from token flows. Native input requires a supported router command allocation; arbitrary `tx.value`, native outputs and ambiguous multi-asset flows do not receive a fabricated grade. For private swaps, the known BlurHook adapter request and its matching pool/output event identify the public amounts. This does not reveal the input note or regenerate its zero-knowledge proof.
+A reverted receipt is never graded. For public swaps, a single input/output must be established from token flows. Native input requires a supported router command allocation; arbitrary `tx.value`, native outputs and ambiguous multi-asset flows do not receive a fabricated grade. For private swaps, the known OpalHook adapter request and its matching pool/output event identify the public amounts. This does not reveal the input note or regenerate its zero-knowledge proof.
 
 The reference is a supported hook-free Uniswap route quoted at the preceding block. Missing archive state yields `receipt-only`. Comparison excludes network gas and relayer fees. Same-block ordering, available indexed pools, current code pins and numerical precision can affect the comparison. `competitive` means at least 99.9% of that reference, not globally optimal execution. Tests use synthetic receipts and do not claim a live private swap.
 
-See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [BlurHook SDK](https://github.com/BlurHook/blurhook-sdk) and [contract sources](https://github.com/BlurHook/blurhook-contracts). The custom trading adapter has not had an independent audit.
+See [METHOD.md](METHOD.md), [NOTICE](NOTICE), [OpalHook SDK](https://github.com/BlurHook/blurhook-sdk) and the deployment manifest in this repository. The custom trading adapter has not had an independent audit.
+
+## Compatibility
+
+`opalhook-proof` and `blurhook-proof` start the same read-only verifier. `OPALHOOK_RPC_URLS` takes precedence over the legacy `BLURHOOK_RPC_URLS`. Deployed contract addresses and proof semantics are unchanged.
